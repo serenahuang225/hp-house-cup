@@ -24,14 +24,14 @@ export default function House({ name, color, points, members }) {
   // Generate random gems for the storage area
   const generateGems = () => {
     const gems = [];
-    const gemCount = 50 + Math.floor(Math.random() * 25); // 50-75 gems
+    const gemCount = 125 + Math.floor(Math.random() * 25); // 125-150 gems
     
     for (let i = 0; i < gemCount; i++) {
       gems.push({
         id: i,
         size: 4 + Math.random() * 6, // 4-10px
-        left: Math.random() * 80 + 10, // 10-90%
-        top: Math.random() * 80 + 10, // 10-90%
+        left: Math.random() * 90, // 0-90%
+        top: Math.random() * 90, // 0-90%
         delay: Math.random() * 3 // 0-3s animation delay
       });
     }
@@ -76,18 +76,23 @@ export default function House({ name, color, points, members }) {
             style={{ height: `${heightPercent}%` }}
           />
         </div>
+
+        <div className="brass-plate w-8 h-6 top-[254px] z-20 flex items-center justify-center">
+          <p className="sorts-mill-goudy-regular text-sm text-gold-bright font-bold">{points}</p>
+        </div>
+
         <div className="brass-base w-20 h-2 top-[254px]"></div>
 
 
         {/* Brass support legs */}
         <div className="flex justify-between w-20 mt-1">
-          <div className="brass-support w-2 h-4"></div>
-          <div className="brass-support w-2 h-4"></div>
-          <div className="brass-support w-2 h-4"></div>
+          <div className="brass-support w-2 h-6"></div>
+          <div className="brass-support w-2 h-6"></div>
+          <div className="brass-support w-2 h-6"></div>
         </div>
 
         {/* House name and points */}
-        <p className="sorts-mill-goudy-regular text-lg text-ink-secondary">{points}</p>
+        {/* <p className="sorts-mill-goudy-regular text-lg text-ink-secondary">{points}</p> */}
         {/* <h3 className="pirata-one-regular text-xl mt-2 text-ink-primary">{name}</h3> */}
 
       </div>
