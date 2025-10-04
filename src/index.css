@@ -1,3 +1,379 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color: #ddb88b;
+  --text-color: #33230f;
+  --text-primary: #33230f;
+  --text-secondary: #5f553f;
+  --text-muted: #7d6e54;
+  --text-accent: #ffd732;
+  --text-gold: #ffeb69;
+  --bg-parchment: #ddb88b;
+  --bg-parchment-dark: #c4a06f;
+  --bg-parchment-light: #f5c687;
+  --shadow-magical: 0 0 20px rgba(255, 235, 105, 0.3);
+  --shadow-parchment: 0 4px 6px -1px rgba(51, 35, 15, 0.1);
+}
+
+
+body {
+  font-family: "Sorts Mill Goudy", serif;
+  color: var(--text-color);
+  background-color: rgba(221, 184, 139, 0.3);
+  background-image: 
+  url("./images/wand-border.png"),
+    url("./images/parchment.png");
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-attachment: fixed; /* makes it feel "anchored" while scrolling */
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(51, 35, 15, 0.5);
+  border-radius: 4px;
+}
+
+/* Magical parchment containers */
+.bg-parchment-container {
+  background-color: rgba(221, 184, 139, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 50, 0.2);
+  box-shadow: var(--shadow-parchment);
+}
+
+.bg-parchment-dark {
+  background-color: rgba(196, 160, 111, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 50, 0.3);
+  box-shadow: var(--shadow-parchment);
+}
+
+.bg-parchment-light {
+  background-color: rgba(245, 198, 135, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 215, 50, 0.1);
+  box-shadow: var(--shadow-parchment);
+}
+
+/* Text color utilities */
+.text-ink-primary {
+  color: var(--text-primary);
+}
+
+.text-ink-secondary {
+  color: var(--text-secondary);
+}
+
+.text-ink-muted {
+  color: var(--text-muted);
+}
+
+.text-gold-accent {
+  color: var(--text-accent);
+}
+
+.text-gold-bright {
+  color: var(--text-gold);
+}
+
+/* Magical glow effects */
+.glow-magical {
+  box-shadow: var(--shadow-magical);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.glow-subtle {
+  box-shadow: 0 0 10px rgba(255, 215, 50, 0.2);
+}
+
+/* Button styling */
+button {
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(51, 35, 15, 0.2);
+}
+
+/* Magical input styling */
+input, select {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 215, 50, 0.3);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--text-accent);
+  box-shadow: 0 0 0 2px rgba(255, 215, 50, 0.2);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Hourglass-shaped glass tube styling */
+.glass-tube {
+  position: relative;
+  width: 64px; /* 16 * 4 = 64px */
+  height: 256px; /* 64 * 4 = 256px */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.1) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    0 0 30px rgba(255, 255, 255, 0.1),
+    0 4px 15px rgba(0, 0, 0, 0.1);
+  clip-path: polygon(
+    0% 0%,           /* Top left */
+    100% 0%,         /* Top right */
+    100% 20%,        /* Right side of top bulb */
+    60% 25%,         /* Right side of waist */
+    100% 30%,        /* Right side of bottom bulb */
+    100% 100%,       /* Bottom right */
+    0% 100%,         /* Bottom left */
+    0% 30%,          /* Left side of bottom bulb */
+    40% 25%,         /* Left side of waist */
+    0% 20%           /* Left side of top bulb */
+  );
+}
+
+.glass-tube::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20%;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 100%);
+  clip-path: polygon(
+    0% 0%,           /* Top left */
+    100% 0%,         /* Top right */
+    100% 100%,       /* Right side */
+    60% 100%,        /* Right side of waist */
+    40% 100%,        /* Left side of waist */
+    0% 100%          /* Left side */
+  );
+  z-index: 1;
+}
+
+.glass-tube::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%);
+  clip-path: polygon(
+    0% 0%,           /* Top left */
+    100% 0%,         /* Top right */
+    100% 20%,        /* Right side of top bulb */
+    60% 25%,         /* Right side of waist */
+    100% 30%,        /* Right side of bottom bulb */
+    100% 100%,       /* Bottom right */
+    0% 100%,         /* Bottom left */
+    0% 30%,          /* Left side of bottom bulb */
+    40% 25%,         /* Left side of waist */
+    0% 20%           /* Left side of top bulb */
+  );
+  z-index: 2;
+}
+
+/* Gem storage area (top 20% - top bulb) */
+.gem-storage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25%;
+  overflow: hidden;
+  z-index: 3;
+  clip-path: polygon(
+    0% 0%,           /* Top left */
+    100% 0%,         /* Top right */
+    100% 100%,       /* Right side */
+    60% 100%,        /* Right side of waist */
+    40% 100%,        /* Left side of waist */
+    0% 100%          /* Left side */
+  );
+}
+
+.gem {
+  position: absolute;
+  border-radius: 50%;
+  animation: gem-sparkle 3s ease-in-out infinite;
+}
+
+.gem-ruby {
+  background: radial-gradient(circle at 30% 30%, #ff6b6b, #cc0000, #990000);
+  box-shadow: 
+    0 0 10px rgba(255, 107, 107, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.gem-sapphire {
+  background: radial-gradient(circle at 30% 30%, #4dabf7, #1971c2, #0c4a6e);
+  box-shadow: 
+    0 0 10px rgba(77, 171, 247, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.gem-emerald {
+  background: radial-gradient(circle at 30% 30%, #51cf66, #2f9e44, #1a5d1a);
+  box-shadow: 
+    0 0 10px rgba(81, 207, 102, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.gem-diamond {
+  background: radial-gradient(circle at 30% 30%, #ffd43b, #fab005, #e67700);
+  box-shadow: 
+    0 0 10px rgba(255, 212, 59, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Points display area (bottom 80% - bottom bulb) */
+.points-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80%;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  clip-path: polygon(
+    0% 0%,           /* Top left */
+    100% 0%,         /* Top right */
+    100% 100%,       /* Right side */
+    0% 100%          /* Left side */
+  );
+}
+
+/* Brass detailing */
+.brass-support {
+  /* position: absolute; */
+  background: linear-gradient(135deg, #cd7f32, #b8860b, #daa520);
+  border-radius: 2px;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.brass-ring {
+  position: absolute;
+  background: linear-gradient(135deg, #cd7f32, #b8860b, #daa520);
+  border-radius: 50%;
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.brass-base {
+  position: absolute;
+  background: linear-gradient(135deg, #cd7f32, #b8860b, #daa520);
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes gem-sparkle {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.1) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes gem-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-2px) rotate(90deg); }
+  50% { transform: translateY(-4px) rotate(180deg); }
+  75% { transform: translateY(-2px) rotate(270deg); }
+}
+
+/* Additional glass tube refinements */
+.glass-tube:hover {
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.15),
+    0 0 40px rgba(255, 255, 255, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Gem storage area enhancements */
+.gem-storage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 100%);
+  clip-path: polygon(
+    0% 0%,           /* Top left */
+    100% 0%,         /* Top right */
+    100% 100%,       /* Right side */
+    60% 100%,        /* Right side of waist */
+    40% 100%,        /* Left side of waist */
+    0% 100%          /* Left side */
+  );
+  z-index: 1;
+}
+
+/* Brass detailing enhancements */
+.brass-ring::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.3) 100%);
+  border-radius: 50%;
+}
+
+.brass-base::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.2) 100%);
+  border-radius: 8px;
+}

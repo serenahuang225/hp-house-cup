@@ -11,14 +11,19 @@ export default function HouseCylinders({ houses }) {
 
   return (
     <div className="flex justify-around mb-6">
-      {Object.keys(houses).map((house) => (
-        <House
-          key={house}
-          name={house}
-          color={colors[house]}
-          points={houses[house].points || 0}
-          members={houses[house].members || []}
-        />
+      {Object.keys(houses).map((house, index) => (
+        <div 
+          key={house} 
+          className="animate-float"
+          style={{ animationDelay: `${index * 0.5}s` }}
+        >
+          <House
+            name={house}
+            color={colors[house]}
+            points={houses[house].points || 0}
+            members={houses[house].members || []}
+          />
+        </div>
       ))}
     </div>
   );

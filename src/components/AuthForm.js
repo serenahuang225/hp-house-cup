@@ -1,7 +1,8 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase";
+import LogoutButton from "./LogoutButton";
 
-export default function Login() {
+export default function AuthForm({user}) {
   const handleGoogleLogin = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -12,16 +13,22 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-3 bg-gray-900/70 p-6 rounded-xl max-w-sm mx-auto mt-10 shadow-lg">
-      <h2 className="pirata-one-regular text-2xl text-yellow-400 mb-2">
-        Admin Login
+    <div className="flex flex-row items-center justify-between align-middle space-x-3 bg-parchment-dark px-4 py-2 rounded-xl max-w-md mx-auto shadow-parchment glow-subtle">
+      <h2 className="pirata-one-regular text-xl text-gold-500">
+        Professor {user ? user?.displayName : "Login"}
       </h2>
-      <button
-        onClick={handleGoogleLogin}
-        className="medievalsharp-regular bg-yellow-600 hover:bg-yellow-500 px-4 py-2 rounded text-black shadow-md"
-      >
-        Sign in with Google
-      </button>
+
+      {
+        user ? 
+        <LogoutButton /> : 
+        <button
+          onClick={handleGoogleLogin}
+          className="medievalsharp-regular bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-ink-900 shadow-md transition-all duration-300"
+        >
+          Sign in with Google
+        </button>
+      }
+
     </div>
   );
 }

@@ -31,6 +31,7 @@ export default function HouseCupList({ onSelectCup, user }) {
         Hufflepuff: { points: 0, members: [] },
       },
       log: [],
+      adminID: user.uid
     });
 
     setNewCupName("");
@@ -38,7 +39,7 @@ export default function HouseCupList({ onSelectCup, user }) {
 
   return (
     <div className="p-4">
-      <h2 className="pirata-one-regular text-3xl mb-4 text-yellow-300">
+      <h2 className="pirata-one-regular text-3xl mb-4 text-gold-400">
         Active House Cups
       </h2>
 
@@ -46,7 +47,7 @@ export default function HouseCupList({ onSelectCup, user }) {
         {cups.map((cup) => (
           <li
             key={cup.id}
-            className="sorts-mill-goudy-regular cursor-pointer bg-gray-800 p-3 rounded hover:bg-gray-700 transition"
+            className="sorts-mill-goudy-regular cursor-pointer bg-parchment-container p-3 rounded hover:bg-parchment-dark transition-all duration-300 text-ink-primary hover:glow-subtle"
             onClick={() => onSelectCup(cup.id)}
           >
             {cup.name || "Unnamed Cup"}
@@ -54,22 +55,28 @@ export default function HouseCupList({ onSelectCup, user }) {
         ))}
       </ul>
 
+
       {user && (
+      <>
+        <h2 className="pirata-one-regular text-3xl mb-4 text-gold-400">
+          Create a New House Cup
+        </h2>
         <form onSubmit={createNewCup} className="flex items-center space-x-2">
           <input
             type="text"
             placeholder="New Cup Name"
             value={newCupName}
             onChange={(e) => setNewCupName(e.target.value)}
-            className="sorts-mill-goudy-regular p-2 rounded text-black flex-1"
+            className="sorts-mill-goudy-regular p-2 rounded text-ink-primary flex-1"
           />
           <button
             type="submit"
-            className="medievalsharp-regular bg-green-600 px-4 py-2 rounded"
+            className="medievalsharp-regular bg-slytherin-600 hover:bg-slytherin-500 px-4 py-2 rounded text-ink-50 transition-all duration-300"
           >
             Create
           </button>
         </form>
+      </>
       )}
     </div>
   );

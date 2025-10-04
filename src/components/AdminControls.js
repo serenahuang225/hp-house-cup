@@ -39,19 +39,19 @@ export default function AdminControls({ cupId }) {
   };
 
   return (
-    <div className="mt-6 bg-gray-800 p-4 rounded space-y-6">
-      <h3 className="pirata-one-regular text-xl text-yellow-200">
-        Admin Controls
+    <div className="mt-6 bg-parchment-container p-4 rounded space-y-6 shadow-parchment glow-subtle">
+      <h3 className="pirata-one-regular text-xl text-gold-400">
+        Professor Controls
       </h3>
 
       {/* --- Add / Subtract Points --- */}
       <form onSubmit={handlePointsSubmit} className="space-y-2">
-        <h4 className="medievalsharp-regular text-lg">Adjust Points</h4>
+        <h4 className="medievalsharp-regular text-md text-ink-primary">Adjust Points</h4>
         <div className="flex items-center space-x-2">
           <select
             value={house}
             onChange={(e) => setHouse(e.target.value)}
-            className="p-2 rounded text-black"
+            className="p-2 rounded text-ink-primary"
           >
             <option>Gryffindor</option>
             <option>Slytherin</option>
@@ -62,18 +62,18 @@ export default function AdminControls({ cupId }) {
             type="number"
             value={points}
             onChange={(e) => setPoints(Number(e.target.value))}
-            className="p-2 rounded text-black w-20"
+            className="p-2 rounded text-ink-primary w-20"
           />
           <input
             type="text"
             value={reason}
             onChange={(e) => setReason(e.target.value)}
             placeholder="Reason"
-            className="p-2 rounded text-black flex-1"
+            className="p-2 rounded text-ink-primary flex-1"
           />
           <button
             type="submit"
-            className="medievalsharp-regular bg-yellow-600 hover:bg-yellow-500 px-4 py-2 rounded"
+            className="medievalsharp-regular bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-ink-900 transition-all duration-300"
           >
             Add
           </button>
@@ -82,12 +82,12 @@ export default function AdminControls({ cupId }) {
 
       {/* --- Add Member to House --- */}
       <form onSubmit={handleAddMember} className="space-y-2">
-        <h4 className="medievalsharp-regular text-lg">Add Member</h4>
+        <h4 className="medievalsharp-regular text-md text-ink-primary">Add Member(s)</h4>
         <div className="flex items-center space-x-2">
           <select
             value={house}
             onChange={(e) => setHouse(e.target.value)}
-            className="p-2 rounded text-black"
+            className="p-2 rounded text-ink-primary"
           >
             <option>Gryffindor</option>
             <option>Slytherin</option>
@@ -99,11 +99,11 @@ export default function AdminControls({ cupId }) {
             value={newMember}
             onChange={(e) => setNewMember(e.target.value)}
             placeholder="Member name"
-            className="p-2 rounded text-black flex-1"
+            className="p-2 rounded text-ink-primary flex-1"
           />
           <button
             type="submit"
-            className="medievalsharp-regular bg-green-600 hover:bg-green-500 px-4 py-2 rounded"
+            className="medievalsharp-regular bg-slytherin-500 hover:bg-slytherin-400 px-4 py-2 rounded text-ink-50 transition-all duration-300"
           >
             Add
           </button>
