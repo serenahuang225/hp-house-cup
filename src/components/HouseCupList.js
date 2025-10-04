@@ -39,7 +39,7 @@ export default function HouseCupList({ onSelectCup, user }) {
 
   return (
     <div className="p-4">
-      <h2 className="pirata-one-regular text-3xl mb-4 text-gold-400">
+      <h2 className="pirata-one-regular text-3xl mb-4 text-gold-500">
         Active House Cups
       </h2>
 
@@ -58,7 +58,7 @@ export default function HouseCupList({ onSelectCup, user }) {
 
       {user && (
       <>
-        <h2 className="pirata-one-regular text-3xl mb-4 text-gold-400">
+        <h2 className="pirata-one-regular text-3xl mb-4 text-gold-500">
           Create a New House Cup
         </h2>
         <form onSubmit={createNewCup} className="flex items-center space-x-2">

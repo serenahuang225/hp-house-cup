@@ -40,7 +40,7 @@ export default function AdminControls({ cupId }) {
 
   return (
     <div className="mt-6 bg-parchment-container p-4 rounded space-y-6 shadow-parchment glow-subtle">
-      <h3 className="pirata-one-regular text-xl text-gold-400">
+      <h3 className="pirata-one-regular text-xl text-gold-500">
         Professor Controls
       </h3>
 

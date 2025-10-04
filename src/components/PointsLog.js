@@ -3,7 +3,7 @@ import React from "react";
 export default function PointsLog({ log }) {
   return (
     <div className="mt-4 bg-parchment-container p-4 rounded shadow-parchment">
-      <h3 className="pirata-one-regular text-xl mb-2 text-gold-400">
+      <h3 className="pirata-one-regular text-xl mb-2 text-gold-500">
         Points Log
       </h3>
       <ul className="sorts-mill-goudy-regular space-y-1 max-h-60 overflow-y-auto">

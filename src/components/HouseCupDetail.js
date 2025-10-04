@@ -26,7 +26,7 @@ export default function HouseCupDetail({ cupId, goBack, user }) {
         ← Back
       </button>
 
-      <h2 className="pirata-one-regular text-3xl mb-4 text-gold-400">
+      <h2 className="pirata-one-regular text-3xl mb-4 text-gold-500">
         {cup.name || "House Cup"}
       </h2>
 
@@ -34,8 +34,13 @@ export default function HouseCupDetail({ cupId, goBack, user }) {
 
       <PointsLog log={cup.log || []} />
 
-      {user && cup && user.uid===cup.adminID ? (
-        <AdminControls cupId={cupId} />
+      {user && cup ?
+      (
+        user.uid===cup.adminID ? 
+        <AdminControls cupId={cupId} /> :
+        <p className="sorts-mill-goudy-regular italic text-ink-muted mt-2">
+          You are not the professor for this cup.
+        </p>
       ) : (
         <p className="sorts-mill-goudy-regular italic text-ink-muted mt-2">
           Login as professor to manage points and students.
