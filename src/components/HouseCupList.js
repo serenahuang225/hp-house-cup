@@ -38,7 +38,7 @@ export default function HouseCupList({ onSelectCup, user }) {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-12">
       <h2 className="pirata-one-regular text-3xl mb-4 text-gold-500">
         Active House Cups
       </h2>

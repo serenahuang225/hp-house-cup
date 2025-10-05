@@ -4,7 +4,7 @@ import { db } from "../firebase";
 
 export default function AdminControls({ cupId }) {
   const [house, setHouse] = useState("Gryffindor");
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(null);
   const [reason, setReason] = useState("");
   const [newMember, setNewMember] = useState("");
 
@@ -22,6 +22,7 @@ export default function AdminControls({ cupId }) {
         time: Date.now(),
       }),
     });
+
     setPoints(0);
     setReason("");
   };
@@ -60,6 +61,7 @@ export default function AdminControls({ cupId }) {
           </select>
           <input
             type="number"
+            placeholder="0"
             value={points}
             onChange={(e) => setPoints(Number(e.target.value))}
             className="p-2 rounded text-ink-primary w-20"
@@ -82,7 +84,7 @@ export default function AdminControls({ cupId }) {
 
       {/* --- Add Member to House --- */}
       <form onSubmit={handleAddMember} className="space-y-2">
-        <h4 className="medievalsharp-regular text-md text-ink-primary">Add Member(s)</h4>
+        <h4 className="medievalsharp-regular text-md text-ink-primary">Add Member</h4>
         <div className="flex items-center space-x-2">
           <select
             value={house}

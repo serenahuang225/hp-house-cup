@@ -13,7 +13,7 @@ export default function PointsLog({ log }) {
         {log.map((entry, idx) => (
           <li key={idx} className="text-sm text-ink-primary">
             <span className="font-bold text-ink-900">{entry.house}</span> {entry.change > 0 ? "earned" : "lost"}{" "}
-            {Math.abs(entry.change)} points – {entry.reason}
+            {Math.abs(entry.change)} points on {new Date(entry.time).toLocaleDateString()}: {entry.reason}
           </li>
         ))}
       </ul>

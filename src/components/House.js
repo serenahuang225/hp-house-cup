@@ -1,7 +1,7 @@
 import React from "react";
 import MembersHouse from "./MembersHouse";
 
-export default function House({ name, color, points, members }) {
+export default function House({ name, points, members }) {
   // Hourglass height scaling (max 1000 points = full bottom bulb height)
   const maxPoints = 1000;
   const heightPercent = Math.min(80, (points / maxPoints) * 80); // 80% max for bottom bulb
@@ -77,7 +77,7 @@ export default function House({ name, color, points, members }) {
           />
         </div>
 
-        <div className="brass-plate w-8 h-6 top-[254px] z-20 flex items-center justify-center">
+        <div className="brass-plate w-8 h-6 top-[242px] z-20 flex items-center justify-center">
           <p className="sorts-mill-goudy-regular text-sm text-gold-bright font-bold">{points}</p>
         </div>
 
@@ -86,9 +86,9 @@ export default function House({ name, color, points, members }) {
 
         {/* Brass support legs */}
         <div className="flex justify-between w-20 mt-1">
-          <div className="brass-support w-2 h-6"></div>
-          <div className="brass-support w-2 h-6"></div>
-          <div className="brass-support w-2 h-6"></div>
+          <div className="brass-support w-2 h-4"></div>
+          <div className="brass-support w-2 h-4"></div>
+          <div className="brass-support w-2 h-4"></div>
         </div>
 
         {/* House name and points */}

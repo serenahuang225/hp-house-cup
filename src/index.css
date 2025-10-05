@@ -23,8 +23,8 @@ body {
   color: var(--text-color);
   background-color: rgba(221, 184, 139, 0.3);
   background-image: 
-  url("./images/wand-border.png"),
-    url("./images/parchment.png");
+  url("./images/parchment.png"),
+  url("./images/wand-border.png");
   background-size: cover, cover;
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
